@@ -9,12 +9,15 @@ guess = 0
 while guess != number:
     try:
         guess = int(raw_input("Pick a number between 1 and 100: "))
-        if guess < number:
-            print "Guess is too low"
-        elif guess > number:
-            print "Guess is too high"
+        if guess > 0 and guess < 101:
+            if guess < number:
+                print "Guess is too low"
+            elif guess > number:
+                print "Guess is too high"
+            else:
+                print "Congrats!"
         else:
-            print "Congrats!"
+            print "Guess is out of range. Try again."
     except ValueError:
         print "Oops! That was not a valid number. Try again."
     
