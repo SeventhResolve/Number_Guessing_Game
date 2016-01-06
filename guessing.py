@@ -7,17 +7,21 @@ def guessing_game():
     number = random.randrange(1, 101)
 
     guess = 0
+    score = 0
 
     while guess != number:
         try:
             guess = int(raw_input("Pick a number between 1 and 100: "))
             if guess > 0 and guess < 101:
                 if guess < number:
-                    print "Guess is too low"
+                    score += 1
+                    print "Guess is too low"                    
                 elif guess > number:
-                    print "Guess is too high"
+                    score += 1
+                    print "Guess is too high"                    
                 else:
-                    print "Congrats!"
+                    score += 1
+                    print "Congrats! It took you {0} tries".format(score)
                     restart = raw_input("Would you like to play a new game? Y or N: ")
                     if restart.lower() == "n":
                         break
