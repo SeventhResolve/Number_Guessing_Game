@@ -8,6 +8,7 @@ def guessing_game():
 
     guess = 0
     score = 0
+    best_score = 100
 
     while guess != number:
         try:
@@ -21,7 +22,13 @@ def guessing_game():
                     print "Guess is too high"                    
                 else:
                     score += 1
-                    print "Congrats! It took you {0} tries".format(score)
+                    if best_score == best_score:
+                        best_score = score
+                    elif score < best_score:
+                        best_score = score
+                    else:
+                        return score
+                    print "Congrats! It took you {} tries. Your high score is {}".format(score, best_score)
                     restart = raw_input("Would you like to play a new game? Y or N: ")
                     if restart.lower() == "n":
                         break
